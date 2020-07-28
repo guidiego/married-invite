@@ -26,7 +26,7 @@
     </div>
     <div class="fullheight" id="accept">
         <p>
-            Gostáriamos de saber:
+            Gostaríamos de saber:
         </p>
 
         <p>
@@ -73,7 +73,7 @@
         const data = atob(t.replace('#accept', ''));
         const [ name, phone, msg ] = data.split(';');
         document.querySelector('.title').textContent = name + ',';
-        document.querySelector('.btn.success').href = 'https://api.whatsapp.com/send?phone=5511' + phone + '&text=' + encodeURI(msg);
+        document.querySelector('.btn.success').href = 'https://api.whatsapp.com/send?phone=55' + phone + '&text=' + encodeURI(msg);
         document.querySelector('.btn.fail').onclick = function (e) {
             e.preventDefault();
             alert('Vírus encontrado no seu computador!!!!');
