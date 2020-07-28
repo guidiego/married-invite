@@ -12,11 +12,11 @@
         <p class="title"></p>
 
         <p>
-            Como vocês já sabem, no dia <b>10 de abril de 2021</b>, acontecerá a celebração de nosso casamento, em Arujá, São Paulo.
+            <span class="h1"></span>, no dia <b>10 de abril de 2021</b>, acontecerá a celebração de nosso casamento, em Arujá, São Paulo.
         </p>
 
         <p>
-            Nós gostariamos muito de fazer este convite pessoalmente <span class="quote">(ainda vai contecer)</span>, mas como estamos ficando sem tempo, o pré-convite vai ser seguindo as recomendações de saúde da OMS <span class="quote">(ou seja, sem contato haha)</span>.
+            Nós gostariamos muito de fazer este convite pessoalmente <span class="quote">(ainda vai acontecer)</span>, mas como estamos ficando sem tempo, o pré-convite vai ser seguindo as recomendações de saúde da OMS <span class="quote">(ou seja, sem contato haha)</span>.
         </p>
 
         <p class="last">
@@ -30,7 +30,7 @@
         </p>
 
         <p>
-            Vocês nos dariam a honra de nos acompanhar ao altar e serem nossos padrinhos de casamento?
+            <span class="h2"></span> a honra de nos acompanhar ao altar <span class="h3"></span> de casamento?
         </p>
 
         <p class="last">
@@ -71,7 +71,17 @@
         const scroll = new SmoothScroll('a[href*="#"]');
         const [ url, t ] = window.location.href.split('?d=');
         const data = atob(t.replace('#accept', ''));
-        const [ name, phone, msg ] = data.split(';');
+        const [ name, phone, msg, v ] = data.split(';');
+
+        const forms = [
+            ['Como vocês já sabem', 'Vocês nos dariam', 'e serem nossos padrinhos'],
+            ['Como você já sabe', 'Você nos daria', 'e ser nosso padrinho'],
+            ['Como você já sabe', 'Você nos daria', 'e ser nossa madrinha'],
+        ];
+
+        document.querySelector('.h1').textContent = forms[parseInt(v)][0];
+        document.querySelector('.h2').textContent = forms[parseInt(v)][1];
+        document.querySelector('.h3').textContent = forms[parseInt(v)][1];
         document.querySelector('.title').textContent = name + ',';
         document.querySelector('.btn.success').href = 'https://api.whatsapp.com/send?phone=55' + phone + '&text=' + encodeURI(msg);
         document.querySelector('.btn.fail').onclick = function (e) {
