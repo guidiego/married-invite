@@ -81,7 +81,7 @@
 
         document.querySelector('.h1').textContent = forms[parseInt(v)][0];
         document.querySelector('.h2').textContent = forms[parseInt(v)][1];
-        document.querySelector('.h3').textContent = forms[parseInt(v)][1];
+        document.querySelector('.h3').textContent = forms[parseInt(v)][2];
         document.querySelector('.title').textContent = name + ',';
         document.querySelector('.btn.success').href = 'https://api.whatsapp.com/send?phone=55' + phone + '&text=' + encodeURI(msg);
         document.querySelector('.btn.fail').onclick = function (e) {
